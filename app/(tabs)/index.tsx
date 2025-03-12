@@ -5,7 +5,7 @@ import { Link } from 'expo-router'
 export default function index() {
   return (
     <View>
-      <Link href={'/(tabs)/notifications'}>notifications</Link>
+      <Link href={'/(tabs)/notifications'}>This is feed page</Link>
     </View>
   )
 }

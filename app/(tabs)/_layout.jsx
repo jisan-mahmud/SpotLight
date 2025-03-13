@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
@@ -14,10 +13,10 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: 'black',
           elevation: 0,
-          height: 40,
-          paddingBottom: 8
-
         },
+        tabBarItemStyle: {
+          paddingVertical: 10
+        }
       }}>
         <Tabs.Screen name='index' options={{
           tabBarIcon: ({size, color}) => <Ionicons name='home' size={size} color={color}/>

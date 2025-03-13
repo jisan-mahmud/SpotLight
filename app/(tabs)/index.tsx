@@ -1,11 +1,16 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
+import { useAuth } from '@clerk/clerk-expo'
 
 export default function index() {
+  const {signOut} = useAuth();
+
   return (
     <View>
-      <Link href={'/(tabs)/notifications'}>This is feed page</Link>
+      <TouchableOpacity onPress={()=> signOut()}>
+        <Text>Sign Out</Text>
+      </TouchableOpacity>
     </View>
   )
 }

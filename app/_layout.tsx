@@ -1,8 +1,7 @@
-import { Stack } from "expo-router";
 import { StatusBar, Text } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { tokenCache } from '@/cache'
-import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo'
+import InitialLayout from "@/components/initialLayout";
+import ClerkAndConvexProvider from "@/provider/ClerkAndConvexProvider";
 
 
 export default function RootLayout() {
@@ -15,15 +14,13 @@ export default function RootLayout() {
   }
   
   return (
-    <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
-      <ClerkLoaded>
-        <SafeAreaProvider>
-           <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
-              <StatusBar backgroundColor={'black'} />
-              <Stack screenOptions={{ headerShown: false }} />
-            </SafeAreaView>
-         </SafeAreaProvider>
-      </ClerkLoaded>
-    </ClerkProvider>
+    <ClerkAndConvexProvider>
+      <SafeAreaProvider>
+          <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
+            <StatusBar barStyle={'light-content'} backgroundColor={'black'} />
+            <InitialLayout/>
+          </SafeAreaView>
+        </SafeAreaProvider>
+    </ClerkAndConvexProvider>
   )
 }
